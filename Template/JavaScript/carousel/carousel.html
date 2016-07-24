@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+</head>
+<body>
+	<div id="carousel">
+		<div id="show">
+			<img src="./imgs/1.jpg" alt="">
+			<img src="./imgs/2.png" alt="">
+			<img src="./imgs/3.png" alt="">
+		</div>
+	</div>
+	<script src="./scripts/jquery-1.7.1.min.js"></script>
+	<script>
+		;(function(window,$){
+			var carouselDom=$("#carousel"),time=1;
+			if(carouselDom.length>0){
+				//获取所有的图片
+				var imgs=carouselDom.find("img"),width,height;
+				//width
+				width=carouselDom.width();
+				var showDom=$('#show').css("width",width);
+				var imgWidth=width/imgs.length;
+				imgs.css("width",(imgWidth-10)+"px");
+
+				//height
+				if(carouselDom.height()>300){
+					height=300;
+				}
+				else{
+					height=carouselDom.height();
+				}
+				carouselDom.css("height",height+"px");
+				imgs.css("height",height+"px");
+
+				carouselDom.css({
+				 	"width":imgWidth-10,
+				 	"overflow":"hidden",
+				 	"position":"fixed",
+				 	"left":"50%",
+				 	"margin-left":-(imgWidth/2),
+				 	"overflow":"hidden",
+				 });
+				 setTime(imgWidth);
+				//创建展示窗口
+				// var displayDom='<div style="width:'+(imgWidth-10)+'px;height:'+height+'px;left:50%;margin-left:-'+imgWidth/2+'px;position:fixed;background:red;opacity:0">sdf</div>';
+				
+				// carouselDom.append(displayDom);
+			}
+			else{
+				console.log('轮播不存在!,请检查html页面(<div id="carousel">轮播</div>)');
+			}
+			function setTime(width){
+				var transformWidth=imgWidth;
+				var setIntervalName=setInterval(function(){
+					if(time==3){
+						// setIntervalName&&clearInterval(setIntervalName);
+						transformWidth=0;
+						time=0;
+					}
+					showDom.css({"transform":"translateX(-"+transformWidth+"px)"});
+					transformWidth+=imgWidth;
+					time++;
+					console.log(transformWidth);
+				},2000)
+			}
+		}(window,$));
+	</script>
+</body>
+</html>
