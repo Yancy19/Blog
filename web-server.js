@@ -6,13 +6,14 @@ var util = require('util'),
     url = require('url'),
     events = require('events');
 
+var DEFAULT_IP = '58.154.51.219';
 var DEFAULT_PORT = 8000;
 
 function main(argv) {
   new HttpServer({
     'GET': createServlet(StaticServlet),
     'HEAD': createServlet(StaticServlet)
-  }).start(Number(argv[2]) || DEFAULT_PORT);
+  }).start(DEFAULT_IP,Number(argv[2]) || DEFAULT_PORT);
 }
 
 function escapeHtml(value) {
@@ -38,10 +39,10 @@ function HttpServer(handlers) {
   this.server = http.createServer(this.handleRequest_.bind(this));
 }
 
-HttpServer.prototype.start = function(port) {
+HttpServer.prototype.start = function(ip,port) {
   this.port = port;
   this.server.listen(port);
-  util.puts('Http Server running at http://localhost:' + port + '/');
+  util.puts('Http Server running at http://'+ip+':' + port + '/');
 };
 
 HttpServer.prototype.parseUrl_ = function(urlString) {

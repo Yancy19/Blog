@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+</head>
+<body>
+
+	<!-- <div >
+		<div id="show">
+			<img src="./imgs/1.jpg" alt="">
+			<img src="./imgs/2.png" alt="">
+			<img src="./imgs/3.png" alt="">
+		</div>
+		
+	</div> -->
+	<div id="carousel" style="width: 100%;height:200px;">
+	点击我
+	</div>
+	<div id="text">hhh:</div>
+	<script src="./scripts/jquery-1.7.1.min.js"></script>
+	<script>
+
+	var obj = document.getElementById("carousel");
+	obj.addEventListener("touchstart", function(event) {
+	  console.log("111");
+	  $("#text").append("1");
+	}, false);
+	obj.addEventListener("touchmove", function(event) {
+	  console.log("222");
+	  $("#text").append("2");
+	}, false);
+	obj.addEventListener('touchend', function(){
+		console.log("333");
+		$("#text").append("3");
+	}, false);
+	obj.addEventListener('touchcancel', function(){
+		console.log("444");
+		$("#text").append("4");
+	}, false);
+
+
+	// var obj = $("#carousel");
+	// obj.on("touchstart", function(event) {
+	//   console.log("111");
+	//   $("#text").append("1");
+	// }, false);
+	// obj.on("touchmove", function(event) {
+	//   console.log("222");
+	//   $("#text").append("2");
+	// }, false);
+	// obj.on('touchend', function(){
+	// 	console.log("333");
+	// 	$("#text").append("3");
+	// }, false);
+	// obj.on('touchcancel', function(){
+	// 	console.log("444");
+	// 	$("#text").append("4");
+	// }, false);
+
+
+
+	// var div = document.getElementById("carousel");
+	// var div = document.getElementById("carousel");
+		// $("#show").on("ontouchstart",function(){
+		// 	console.log("start");
+		// });
+		// div.addEventListener("click",function(){
+		// 	console.log(2);
+		// },false)
+		// //touchstart类似mousedown
+		// div.ontouchstart = function(e){
+		// 	console.log("start");
+		// 	//事件的touches属性是一个数组，其中一个元素代表同一时刻的一个触控点，从而可以通过touches获取多点触控的每个触控点
+		// 	//由于我们只有一点触控，所以直接指向[0]
+		// 	var touch = e.touches[0];
+		// 	//获取当前触控点的坐标，等同于MouseEvent事件的clientX/clientY
+		// 	var x = touch.clientX;
+		// 	var y = touch.clientY;
+		// };
+	// $("#carousel").bind('mousedown', function(mdown){
+	// 	$("#carousel").stop(true, false);
+	//     console.log("1");
+	//     console.log(mdown);
+	//     $("#text").append("1");
+	//     $("#text").append("pageX："+mdown.pageX);
+	//     $("#carousel").bind('mousemove', function(mmove){
+	// 	    console.log("2");
+	// 	    console.log(mmove);
+	// 	    $("#text").append("2");
+	// 	    $("#text").append("pageX："+mmove.pageX);
+	// 	    $("#carousel").bind('mouseup', function(mup){
+	// 		    console.log("3");
+	// 		    console.log(mup);
+	// 		    $("#text").append("3");
+	// 		    $("#text").append("pageX："+mup.pageX);
+	// 		});
+	// 	});
+		
+
+	// });
+		
+		// ;(function(window,$){
+		// 	var carouselDom=$("#carousel"),time=1;
+		// 	if(carouselDom.length>0){
+		// 		//获取所有的图片
+		// 		var imgs=carouselDom.find("img"),width,height;
+		// 		//width
+		// 		width=carouselDom.width();
+		// 		// var showDom=$('#show').css("width",width);
+		// 		var imgWidth=width/imgs.length;
+		// 		imgs.css("width",(imgWidth-10)+"px");
+
+		// 		//height
+		// 		if(carouselDom.height()>300){
+		// 			height=300;
+		// 		}
+		// 		else{
+		// 			height=carouselDom.height();
+		// 		}
+		// 		carouselDom.css("height",height+"px");
+		// 		imgs.css("height",height+"px");
+
+		// 		carouselDom.css({
+		// 		 	"width":imgWidth-10,
+		// 		 	"overflow":"hidden",
+		// 		 	"position":"fixed",
+		// 		 	"left":"50%",
+		// 		 	"margin-left":-(imgWidth/2),
+		// 		 	"overflow":"hidden",
+		// 		 });
+		// 		 setTime(imgWidth);
+		// 		//创建展示窗口
+		// 		// var displayDom='<div style="width:'+(imgWidth-10)+'px;height:'+height+'px;left:50%;margin-left:-'+imgWidth/2+'px;position:fixed;background:red;opacity:0">sdf</div>';
+				
+		// 		// carouselDom.append(displayDom);
+		// 	}
+		// 	else{
+		// 		console.log('轮播不存在!,请检查html页面(<div id="carousel">轮播</div>)');
+		// 	}
+		// 	function setTime(width){
+		// 		var transformWidth=imgWidth;
+		// 		var setIntervalName=setInterval(function(){
+		// 			if(time==3){
+		// 				// setIntervalName&&clearInterval(setIntervalName);
+		// 				transformWidth=0;
+		// 				time=0;
+		// 			}
+		// 			showDom.css({"transform":"translateX(-"+transformWidth+"px)"});
+		// 			transformWidth+=imgWidth;
+		// 			time++;
+		// 			console.log(transformWidth);
+		// 		},2000)
+		// 	}
+		// }(window,$));
+		
+		jQuery.extend(jQuery.easing, {
+			inertia: function (x, t, b, c, d) {
+				return c*((t=t/d-1)*t*t + 1) + b;
+			}
+		});
+	</script>
+</body>
+</html>
