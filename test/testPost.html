@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="javascripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="testjs1.js"></script>
+	<script type="text/javascript" src="testjs2.js"></script>
+	<script>
+	"use strict";
+	// $.ajax({
+	//     url: "http://58.154.51.219:8888/api/test/testpost",
+	//     type: "POST",
+	//     // beforeSend: function(request) {
+ //     //        request.setRequestHeader("Access-Control-Allow-Origin", "*");
+ //     //    },
+ //     //    headers: {
+	//     //     "Access-Control-Allow-Origin":"*"
+	//     // },
+	//     data: {"":JSON.stringify({"a":"aaaaaa","b":"bbbbbbb"})},
+	//     // data:{"a":"qweqwe","b":"123123"},
+	//     success:function(data){
+
+	//     },
+	//     error:function(data){
+
+	//     }
+	// });
+	console.log("这是内部1"+test);
+	var test="yyg1";
+	console.log("这是内部2"+test);
+	$.ajax({
+	    url: "http://58.154.51.219:8888/api/test/testpost1",
+	    type: "POST",
+	    // beforeSend: function(request) {
+     //        request.setRequestHeader("Access-Control-Allow-Origin", "*");
+     //    },
+        headers: {
+	        "Access-Control-Allow-Origin":"*"
+	    },
+	    contentType:"application/json",
+	    data: JSON.stringify({a:"aaaaaa",b:"bbbbbbb"}),
+	    // data:{"a":"qweqwe","b":"123123"},
+	    success:function(data){
+
+	    },
+	    error:function(data){
+
+	    }
+	});
+	
+	// $.post( "http://58.154.51.219:8888/api/test/testpost", {"":"qweqwe"},function( data ) {
+		  
+	// 	});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
