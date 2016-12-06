@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4c068e5f2b3c49536b62"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4b745b6ee1fe366c8329"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -40392,9 +40392,8 @@
 	            var obj = {
 	                window_width: this.props.width || (0, _jquery2.default)(this.refs.html5_3d_animation).parent().css("width"),
 	                window_height: '200',
-	                // window_background: '#00113F',
-	                window_background: '#0B0A0A',
-	                star_count: '1000',
+	                window_background: '#00113F',
+	                star_count: '666',
 	                star_color: '#FBFFAF',
 	                star_depth: '200'
 	            };
